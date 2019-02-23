@@ -9,7 +9,7 @@
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Button fx:id="newGameButton" mnemonicParsing="false" onAction="#newGameClicked" text="Start Game" />
-                  <Button mnemonicParsing="false" text="Load Game" />
+                  <Button mnemonicParsing="false" style="-fx-effect: dropshadow(  gaussian , #000000 , 10 , 0.0 , 3, 3 );" text="Load Game" />
                   <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#settingsClicked" text="Settings!" />
                </children>
             </VBox>
