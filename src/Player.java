@@ -1,4 +1,4 @@
-package sample;
+//package sample;
 import java.util.*;
 
 public class Player {
@@ -15,7 +15,6 @@ public class Player {
         this.unitNumber = unitNumber;
         this.occupiedProvinces = new ArrayList<>();//ArrayList has been created
         this.occupiedProvinces = occupiedProvinces;
-        this.cards = new ArrayList<>();//ArrayList has been created
         this.cards = cards;
     }
 
@@ -38,9 +37,6 @@ public class Player {
         return cards;
     }
 
-    public ArrayList<Province> getOccupiedProvinces() {
-        return occupiedProvinces;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -50,29 +46,27 @@ public class Player {
         this.cards = card;
     }
 
+
     public void setOccupiedProvinces(ArrayList<Province> occupiedProvinces) {
         this.occupiedProvinces = occupiedProvinces;
     }
+
+    public ArrayList<Province> getOccupiedProvinces() {
+        return occupiedProvinces;
+    }
+
+
 
     public void setPlayerColor(String playerColor) {
         this.playerColor = playerColor;
     }
 
     public void setUnitNumber(int unitNumber) {
-        this.unitNumber = unitNumber;
+        this.unitNumber = this.unitNumber + unitNumber;
     }
 
-    //This method decreases the unit number of the player
-    public int decreaseUnitsBy(int num){
-        return getUnitNumber() - num;
-    }
 
-    //This method increases the unit number of the player
-    public int increaseUnitsBy(int num){
-        return getUnitNumber() + num;
-    }
-
-    //This method adds the occupied province of the player's occupied provinces
+  //This method adds the occupied province of the player's occupied provinces
     public void addOccupiedProvinces(Province newProvince){
         occupiedProvinces.add(newProvince);
     }
@@ -93,27 +87,22 @@ public class Player {
     }
 
     //This method returns the all possible provinces that can be attacked if there is enough units
-    public ArrayList<Province> availableProvinces(ArrayList<Province> occupiedProvinces){
-        if (occupiedProvinces.size() == 0){return null;}//If there is no province that has occupied
-        else {
-            ArrayList<Province> availableProvinces = new ArrayList<>();//This list will have the all possible provnices to attack for all provinces that are occupied
-            for (Province temp : occupiedProvinces) {//Temp iteratively correspondes to every occupied province
-                for (Province insideTemp : temp.getAdjacentProvinces) {//Getting the adjacent provinces for each occupied provinces from temp by using the variable inseideTemp iteratively
-                    availableProvinces.add(insideTemp);//Adding the province that can be attacked to the created linked list
-                }
-            }
-            return availableProvinces;//Returning the provinces that can be attacked
+    public ArrayList<Province> availableProvinces(Province base)
+    {
+      if ( this.canAttack(base) )
+      {
+          return base.getEnemyProvinces();//Returning the provinces that can be attacked
+      }
+        return null ;
+    }
+    // this method returns if the selected province can attack or not
+    public boolean canAttack(Province base){
+        if(this.unitNumber > 1 && this.occupiedProvinces.contains(base))
+        {
+            return true;
         }
+       return false;
     }
 
-    //This methods find a random adjacent province to attack
-    public Province findProvinceToAttack(ArrayList provinces){
-        if(this.unitNumber <= 1){
-            return null;
-            System.out.println("Cannot attack due to the lack of unit forces!");
-        }else {
 
-        }
-        return null;//Holder
-    }
 }

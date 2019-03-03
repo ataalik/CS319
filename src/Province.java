@@ -1,4 +1,4 @@
-package sample;
+//package sample;
 import java.util.*;
 
 public class Province {
@@ -6,6 +6,7 @@ public class Province {
     private String name;//Name of the province
     private String inContinent;//Which continent this province belong to
     private ArrayList<Province> adjacentProvinces;//Adjacent provinces
+    private ArrayList<Province> adjacentEnemyProvinces;//Adjacent provinces
     private Player owner;//Which player has this province
     private ArrayList<Unit> unitsPresent;//Which units are present at the moment
     private Color colorOfProvince;//Color of the province
@@ -16,6 +17,7 @@ public class Province {
         this.name = name;
         this.inContinent = inContinenet;
         this.adjacentProvinces = new ArrayList<>();//ArrayList has been created
+        this.adjacentEnemyProvinces = new ArrayList<>();
         this.adjacentProvinces = adjacentProvinces;
         this.owner = owner;
         this.unitsPresent = new ArrayList<>();//ArrayList has been created
@@ -26,31 +28,36 @@ public class Province {
 
     //Getters and setters
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public String getInContinent() {
+    public String getInContinent()
+    {
         return inContinent;
     }
 
-    public ArrayList<Province> getAdjacentProvinces() {
-        return adjacentProvinces;
-    }
 
-    public Player getOwner() {
+    public Player getOwner()
+    {
         return owner;
     }
 
-    public ArrayList<Unit> getUnitsPresent() {
+    public ArrayList<Unit> getUnitsPresent()
+    {
         return unitsPresent;
     }
 
-    public Color getColorOfProvince() {
+    public Color getColorOfProvince()
+    {
         return colorOfProvince;
     }
 
-    public int getCategory() { return category; }
+    public int getCategory()
+    {
+        return category;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -70,6 +77,24 @@ public class Province {
 
     public void setAdjacentProvinces(ArrayList<Province> adjacentProvinces) {
         this.adjacentProvinces = adjacentProvinces;
+    }
+
+    public ArrayList<Province> getAdjacentProvinces() {
+        return adjacentProvinces;
+    }
+
+    public void setEnemyProvinces(ArrayList<Province> adjacentProvinces) {
+        for (Province temp : adjacentProvinces)
+        {
+            if( temp.getOwner() != this.getOwner())
+            {
+                adjacentEnemyProvinces.add(temp);
+            }
+        }
+    }
+
+    public ArrayList<Province> getEnemyProvinces() {
+        return adjacentEnemyProvinces;
     }
 
     public void setCategory(int category) { this.category = category; }
