@@ -10,7 +10,7 @@ public class Color {
         this.colors = new ArrayList<>();//Arraylist has been created
         this.colors = colors;
     }
-
+P
 
     //Getters and setters
 

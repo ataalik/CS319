@@ -109,6 +109,7 @@ public class Player {
         this.setPlayerColor(color);
         this.setOccupiedProvinces(provinces);
         this.setCard(cards);
+        this.setUnitNumber(units);
     }
 
 
