@@ -104,5 +104,12 @@ public class Player {
        return false;
     }
 
+    //New game method creates a new game for the player
+    public void newGame(String color, int units, ArrayList<Province> provinces, ArrayList<Card> cards){
+        this.setPlayerColor(color);
+        this.setOccupiedProvinces(provinces);
+        this.setCard(cards);
+    }
+
 
 }
