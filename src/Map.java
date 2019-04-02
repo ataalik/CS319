@@ -1,3 +1,6 @@
+    
+package sample;
+import java.util.*;
 	public class Map
 	{
 	 
@@ -53,7 +56,7 @@
 		  Province western_europe = new Province("WESTERN EUROPE" );
 		  Province eastern_europe = new Province("EASTERN EUROPE");
 		  Province northern_europe = new Province("NORTHERN EUROPE");
-		  Province  great_britain = new Province("GREAT BR›TA›N");
+		  Province  great_britain = new Province("GREAT BR√ùTA√ùN");
 		  Province iceland = new Province("ICELAND");
 		  Province scandinavia = new Province("SCANDINAVIA");
 		  Province ukraine = new Province("UKRAINE");
