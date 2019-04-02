@@ -17,7 +17,15 @@ public class Player {
         this.occupiedProvinces = occupiedProvinces;
         this.cards = cards;
     }
-
+    Player(String name , String PlayerColor)
+    {
+    	this.name = name;
+        this.playerColor = playerColor;
+        this.unitNumber = 0;
+        this.occupiedProvinces = new ArrayList<>();//ArrayList has been created
+        cards = new ArrayList<>();
+        
+    }
     //Getters and setters
 
 
@@ -89,7 +97,7 @@ public class Player {
     //This method returns the all possible provinces that can be attacked if there is enough units
     public ArrayList<Province> availableProvinces(Province base)
     {
-      if ( this.canAttack(base) )
+      if ( canAttack(base) )
       {
           return base.getEnemyProvinces();//Returning the provinces that can be attacked
       }
@@ -104,13 +112,4 @@ public class Player {
        return false;
     }
 
-    //New game method creates a new game for the player
-    public void newGame(String color, int units, ArrayList<Province> provinces, ArrayList<Card> cards){
-        this.setPlayerColor(color);
-        this.setOccupiedProvinces(provinces);
-        this.setCard(cards);
-        this.setUnitNumber(units);
-    }
-
-
-}
+ }
