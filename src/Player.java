@@ -6,28 +6,37 @@ public class Player {
     private String playerColor;//Color of the player
     private int unitNumber;//Number of the units that the player has
     private ArrayList<Province> occupiedProvinces;//Occupied places from the player
-    private ArrayList<Card> cards;//Cards that the player has
-
+    private int noOfRegion;
+    private int ID;
     //Constructor
-    Player(String name, String playerColor, int unitNumber, ArrayList occupiedProvinces, ArrayList cards) {
+    Player(String name, String playerColor, int unitNumber, int ID) {
         this.name = name;
         this.playerColor = playerColor;
         this.unitNumber = unitNumber;
+        this.ID = ID
         this.occupiedProvinces = new ArrayList<>();//ArrayList has been created
         this.occupiedProvinces = occupiedProvinces;
-        this.cards = cards;
-    }
+        this.noOfRegion = 0;
+        this.noOfArmy = 0;
+      }
     Player(String name , String PlayerColor)
     {
-    	this.name = name;
+        this.name = name;
         this.playerColor = playerColor;
         this.unitNumber = 0;
         this.occupiedProvinces = new ArrayList<>();//ArrayList has been created
-        cards = new ArrayList<>();
-        
-    }
+        this.noOfRegion = 0;
+     }
     //Getters and setters
-
+    public void setID(int id)
+    {
+      this.ID = id;
+    }
+    public int getID()
+    {
+      return this.ID
+    }
+    
 
     public String getName() {
         return name;
@@ -41,23 +50,11 @@ public class Player {
         return playerColor;
     }
 
-    public ArrayList<Card> getCard() {
-        return cards;
-    }
-
-
-    public void setName(String name) {
+      public void setName(String name) {
         this.name = name;
     }
 
-    public void setCard(ArrayList<Card> card) {
-        this.cards = card;
-    }
-
-
-    public void setOccupiedProvinces(ArrayList<Province> occupiedProvinces) {
-        this.occupiedProvinces = occupiedProvinces;
-    }
+   
 
     public ArrayList<Province> getOccupiedProvinces() {
         return occupiedProvinces;
@@ -89,11 +86,6 @@ public class Player {
         cards.add(newCard);
     }
 
-    //This method extracts card from the players cards
-    public void extractCards(Card removedCard){
-        cards.remove(removedCard);
-    }
-
     //This method returns the all possible provinces that can be attacked if there is enough units
     public ArrayList<Province> availableProvinces(Province base)
     {
@@ -111,5 +103,5 @@ public class Player {
         }
        return false;
     }
-
+    public void 
  }
